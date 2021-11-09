@@ -1,0 +1,81 @@
+
+
+  <div class="lg:flex ">
+    <div id="center" class="lg:w-6/12 text-center ">
+      <div class="pt-12">
+        <h1 class="text-center font-bold text-1xl w-11/12 m-auto"><%= @provider.title %></h1>  
+        <div class="w-11/12 m-auto flex pb-5 pt-16 border-b"> 
+          <div class="w-2/12 font-bold">
+          仕事内容：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.content %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          報酬内容：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.rcontent %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          地域：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.area %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          報酬日：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.rday %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 "> 
+          <div class="w-2/12 font-bold">
+         　アピール：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.appeal %></p>     
+          </div>
+        </div>
+
+      
+      </div>
+    </div>
+
+    <div class="lg:w-6/12 mx-auto pt-12 ">
+      <div class="lg:fixed lg:w-6/12">
+        <h1 class="text-center font-bold text-2xl">口コミ欄</h1>
+
+        <%= form_tag("/providers/#{@provider.id}/comments", method: :post) do %>
+          
+          <%= text_field_tag :"introduced_user_name", '', class:'mb-5 mt-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-8/12 m-auto  appearance-none leading-normal' %>
+          <%= text_field_tag :"phonenumber", '', class:'mb-5 mt-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-8/12 m-auto  appearance-none leading-normal' %>
+          <%= text_field_tag :"contents", '', class:'mb-5 mt-5 pb-10 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-8/12 m-auto  appearance-none leading-normal' %>
+          <div class=" m-auto">
+            <input type="submit" value="口コミ内容を確認" class="bg-yellow-500 text-white block center rounded-2xl m-auto py-3 px-6">
+          </div>
+        <% end %>
+        <%= form_with(model: [@introduceduser,@provider], method: :post) do |form| %>
+        
+          <%= form.label :お客様名 %>
+          <%= form.text_field :introduced_user_name, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+        <%= form.submit "口コミをする", class:"block center m-auto py-3 px-6" %>
+        <% end %>
+
+      </div>
+     
+    </div>
+
+  </div>
+
+  <div class="overflow-hidden ">
+    <%= render '/layouts/footer' %>
+  </div>
+

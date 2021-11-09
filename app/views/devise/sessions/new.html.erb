@@ -1,0 +1,46 @@
+
+<head>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body class="bg-gradient-to-l from-red-400 to-yellow-500 ">
+<%= render '/layouts/header' %>
+<div class="text-white lg:w-8/12 w-10/12 m-auto">
+ <h2 class="text-3xl font-light text-center pt-28 mb-3">ログイン</h2>
+   <div class="bg-white text-black pt-12 pb-12 border-white-700  border-2 rounded shadow-lg">
+
+     
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+        <div class="text-left mb-3 lg:w-5/12 w-8/12 m-auto">
+          <%= f.label :お名前 %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" ,class: 'border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-full m-auto  appearance-none leading-normal'  %>
+        </div>
+
+        
+
+        <div class="text-left mb-3 lg:w-5/12 w-8/12 m-auto">
+          <%= f.label :password %><br />
+          <%= f.password_field :password, autocomplete: "current-password", class: 'border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-full m-auto  appearance-none leading-normal'  %>
+        </div>
+
+        <% if devise_mapping.rememberable? %>
+          <div class="mb-3 w-5/12 m-auto text-center">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end %>
+
+        <div class="mb-3 w-5/12 m-auto text-center">
+          <%= f.submit "ログイン", class: 'w-8/12 bg-blue-500 text-white font-bold rounded-xl' %>
+        </div>
+      <% end %>
+      <div class=" lg:w-5/12 w-8/12 m-auto text-center ">
+      <%= render "devise/shared/links", class:'w-full m-auto ' %>
+      </div>
+  </div>
+</div>
+</body>
+

@@ -1,0 +1,12 @@
+  <div class=" lg:w-6/12 m-auto">
+        <h1 class="text-center font-bold text-2xl">口コミ欄</h1>
+
+       
+        
+         <%= form_with(model: @provider, @introduceduser, method: :post) do |form| %>
+        
+          <%= form.label :お客様名 %>
+          <%= form.text_field :introduced_user_name, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+        <%= form.submit "口コミをする", class:"block center m-auto py-3 px-6" %>
+        <% end %>
+      </div>

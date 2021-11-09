@@ -1,0 +1,43 @@
+  
+<body>
+<%= render '/layouts/header' %>
+  <div class="pt-24 flex w-12/12">
+    <div id="sidebar" class="w-3/12 ml-20 text-center">
+      <%= render 'side' %>
+    </div>
+    <div id="center" class="w-8/12 text-center">
+      <div>
+        <p class="font-bold text-2xl p-6">案件を作成する</p>
+      </div>
+
+      <%= form_with model: @providers, local: true do |form| %>
+        
+          <%= form.label :タイトル %>
+          <%= form.text_field :title, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+          <%= form.label :報酬 %>
+          <%= form.text_field :reward, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %> 
+
+          <%= form.label :報酬支払日 %>
+          <%= form.text_field :rday, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+          <%= form.label :地域 %>
+          <%= form.text_field :area, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+          <%= form.label :案件内容 %>
+          <%= form.text_area :content, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+          <%= form.label :報酬内容 %>
+          <%= form.text_area :rcontent, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+          <%= form.label :アピールポイント %>
+          <%= form.text_area :appeal, class:"mb-5 border-2 border-gray-300  focus:border-orange-600 rounded-lg py-1  block w-6/12 m-auto  appearance-none leading-normal" %>
+
+
+          <%= form.submit "案件作成", class:"block center m-auto py-3 px-6" %>
+      <% end %>
+    </div>
+  </div>  
+</body>
+
+  

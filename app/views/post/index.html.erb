@@ -1,0 +1,26 @@
+<body class="bg-gradient-to-l from-red-400 to-yellow-500">
+  <%= render '/layouts/header' %>
+  <div id="center" class="w-8/12 text-center m-auto pt-20 text-gray-700 ">
+  <h1 class="text-center text-white font-normal text-4xl pt-10 mb-5 ">案件一覧</h1>
+    <ul class="  w-10/12 mx-auto text-black">
+    <% @providers.each do |provider| %> 
+     <li class="bg-white  border  border-black-500 pb-5 pt-5  mb-10 shadow-lg text-glay-700">
+    <a href="<%= provider.id %>" class="text-2xl font-bold "><%= provider.title %></a>
+    
+       <div class="text-center pt-3 pb-3 w-10/12 m-auto">
+        <ul class="inline-block">
+          <li class="text-left">報酬：<%= provider.reward %></li>
+          <li class="text-left ">地域：<%= provider.area %></li>
+        </ul>
+       </div>
+       <a href="<%= provider.id %>" class="" >
+        <input type="submit" value="詳細をみる" class="block  rounded-3xl bg-yellow-500 text-white center m-auto  px-8">
+       </a>
+    </li>
+    <% end %>
+    </div>
+    <div class="overflow-hidden ">
+    <%= render '/layouts/footer' %>
+    </div>
+  
+</body>

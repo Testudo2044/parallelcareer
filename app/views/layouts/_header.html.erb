@@ -1,0 +1,54 @@
+
+
+
+    <header class="h-16 lg:h-20 py-4 lg:pt-6 lg:block z-9 w-full fixed bg-white border-b-2">
+      <div id="smartPheader" class="lg:hidden space-x- z-10 flex">
+          <%= link_to "ロゴ","/tops/index",class: 'w-16 pl-5 py-1' %>
+          <%= link_to "無料登録" ,"/users/sign_up",class: 'w-24 py-1 bg-blue-400 block text-1xl font-bold text-center text-white border rounded-3xl ' %>
+          <nav id="humburger" class="hidden lg:hidden absoluto top-1 -left-2/4 w-2/4 h-screen bg-white">
+            <ul class="pt-20">
+            <li><%= link_to "案件一覧","/post/index" %></li>
+            <li><a href="/tops/index/#faq" class="">FAQ</a></li>
+            <li>お問い合わせ</li>
+          <% if user_signed_in? && current_user.id == 5  %>
+            <li><%=  link_to 'ログアウト' , destroy_user_session_path,method: :delete %></li>
+            <li><%= link_to "管理者ページ","/provider/index" %></li>
+          <% elsif user_signed_in? %>
+            <li><%=  link_to 'ログアウト' , destroy_user_session_path,method: :delete %></li>
+            <li><%= link_to "ユーザーページ","/users/home  " %></li>
+          <% else %>
+            <li><%= link_to "会員登録","/users/sign_up" %></li>
+            <li><%= link_to "ログイン","/users/sign_in" %></li>
+          <% end %>  
+            </ul>
+          </nav>
+          <div>
+            <span id="line1" ></span>
+            <span id="line2" ></span>
+            <span id="line3" ></span>
+          </div>
+      </div>
+      <div id="headerForPC" class="flex h-16 lg:pl-36 lg:space-x-52 xl:space-x-64">
+        <div id="header-logo" class="">
+          <%= link_to "ロゴ","/tops/index",class: 'hidden lg:block w-16' %>
+        </div>
+        <div id="header-list" class="hidden lg:block">
+          <ul id="navbar" class="content-center flex truncate lg:space-x-16 xl:space-x-24">
+            <li><%= link_to "案件一覧","/post/index" %></li>
+            <li><a href="/tops/index/#faq" class="">FAQ</a></li>
+            <li>お問い合わせ</li>
+          <% if user_signed_in? && current_user.id == 5  %>
+            <li><%=  link_to 'ログアウト' , destroy_user_session_path,method: :delete %></li>
+            <li><%= link_to "管理者ページ","/providers" %></li>
+          <% elsif user_signed_in? %>
+            <li><%=  link_to 'ログアウト' , destroy_user_session_path,method: :delete %></li>
+            <li><%= link_to "ユーザーページ","/users/home  " %></li>
+          <% else %>
+            <li><%= link_to "ログイン","/users/sign_in" %></li>
+            <li  class="bg-yellow-500 text-white font-bold  px-5 rounded-2xl "><%= link_to "会員登録","/users/sign_up" %></li>
+          <% end %>  
+          </ul>
+        </div>
+      </div>
+    </header>
+    

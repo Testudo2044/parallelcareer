@@ -1,0 +1,17 @@
+<div class="flex w-12/12">
+    <div id="sidebar" class="w-3/12 ml-20 text-center">
+      <%= render '/providers/side' %>
+    </div>
+
+    <div class=" w-7/12 mx-auto pt-8">
+      <div class="w-10/12 m-auto">  
+        <p class="text-center font-bold text-2xl">口コミ内容</p>
+        <p class="center">案件名：<%= @introduceduser.provider.title %>様</p>
+        <p class="center">紹介者名：<%= @introduceduser.user.name %>様</p>
+        <p class="center">お客様名：<%= @introduceduser.introduced_user_name %>様</p>
+        <p class="center">お客様電話番号：<%= @introduceduser.phonenumber %></p>
+        <p class="center">内容：<%= @introduceduser.contents %></p>
+      </div>
+    </div>
+
+</div>

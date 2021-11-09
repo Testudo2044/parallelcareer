@@ -1,0 +1,64 @@
+<%= render '/layouts/header' %>
+<div class="pt-24 flex w-12/12">
+  <div id="sidebar" class="w-3/12 ml-20 text-center">
+    <%= render 'side' %>
+  </div>
+
+  <div id="center" class="w-7/12 m-auto text-center">
+    <table>
+       <div id="center" class=" text-center ">
+      <div class="pt-12">
+        <h1 class="text-center font-bold text-1xl w-11/12 m-auto"><%= @provider.title %></h1>  
+        <div class="w-11/12 m-auto flex pb-5 pt-16 border-b"> 
+          <div class="w-2/12 font-bold">
+          仕事内容：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.content %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          報酬内容：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.rcontent %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          地域：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.area %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 border-b"> 
+          <div class="w-2/12 font-bold">
+          報酬日：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.rday %></p>     
+          </div>
+        </div>
+        <div class="w-11/12 m-auto flex pb-5 pt-5 "> 
+          <div class="w-2/12 font-bold">
+         　アピール：
+          </div>
+          <div class="w-10/12">
+              <p class=" text-left leading-relaxed" id="contents"><%= @provider.appeal %></p>     
+          </div>
+        </div>
+
+      
+      </div>
+    </div> 
+      <%= link_to "案件を削除する","/providers/#{@provider.id}/destroy",{method: "post"} %>
+      <%= link_to "案件を編集する","/providers/#{@provider.id}/edit" %>
+    
+    
+    
+  </div>
+ 
+  
+</div>

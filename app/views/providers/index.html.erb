@@ -1,0 +1,20 @@
+
+<body>
+ <%= render '/layouts/header' %>
+  <div class="pt-24 flex w-12/12">
+    <div id="sidebar" class="w-3/12 ml-20 text-center">
+      <%= render 'side' %>
+    </div>
+    <body class=" ">
+  <div id="center" class="w-8/12 text-center mx-auto mt-8  text-black">
+  <h1 class="text-center font-bold text-2xl mb-5 ">案件一覧</h1>
+    <ul class="  w-8/12 mx-auto">
+    <% @providers.each do |provider| %> 
+     <li class="bg-white  border-2  border-black-500   ">
+    <a href="providers/<%= provider.id %>" class=" font-bold"><%= provider.title %></a>
+    </li>
+    <% end %>
+  </div>
+</body>
+  </div>  
+</body>
